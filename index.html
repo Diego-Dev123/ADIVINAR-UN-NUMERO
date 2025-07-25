@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Juego de adivinanza de números - Adivina el número secreto">
+    <meta name="keywords" content="juego, adivinanza, números, entretenimiento">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Juego de Adivinanza - Encuentra el Número Secreto</title>
+</head>
+
+<body>
+    <main class="container" role="main">
+        <section class="container__contenido">
+            <div class="container__informaciones">
+                <header class="container__texto">
+                    <h1 id="titulo" aria-live="polite">¡Bienvenido al Juego de Adivinanza!</h1>
+                    <p class="texto__parrafo" id="mensaje" aria-live="polite">
+                        Estoy pensando en un número entre 1 y 10. ¿Puedes adivinarlo?
+                    </p>
+                </header>
+                
+                <div class="container__input-group">
+                    <label for="valorUsuario" class="sr-only">Ingresa tu número entre 1 y 10</label>
+                    <input 
+                        type="number" 
+                        id="valorUsuario" 
+                        name="numeroUsuario"
+                        min="1" 
+                        max="10" 
+                        step="1"
+                        class="container__input"
+                        placeholder="Número del 1 al 10"
+                        aria-describedby="input-help"
+                        autocomplete="off"
+                        required
+                    >
+                    <small id="input-help" class="input-helper">Ingresa un número entre 1 y 10</small>
+                </div>
+                
+                <div class="container__botones" role="group" aria-label="Controles del juego">
+                    <button 
+                        type="button"
+                        onclick="verificarIntento();" 
+                        class="container__boton container__boton--primary"
+                        id="botonIntentar"
+                        aria-describedby="input-help"
+                    >
+                        <span>Intentar</span>
+                    </button>
+                    
+                    <button 
+                        type="button"
+                        class="container__boton container__boton--secondary" 
+                        id="reiniciar" 
+                        onclick="reiniciarJuego();"
+                        disabled
+                        aria-label="Iniciar un nuevo juego"
+                    >
+                        <span>Nuevo Juego</span>
+                    </button>
+                </div>
+                
+                <!-- Información adicional del juego -->
+                <div class="container__stats" aria-live="polite">
+                    <p class="stats__intentos">Intentos: <span id="contadorIntentos">0</span></p>
+                </div>
+            </div>
+            
+            <aside class="container__imagen-container">
+                <img 
+                    src="./img/ia.png" 
+                    alt="Ilustración de una persona pensativa mirando hacia la izquierda, representando el desafío mental del juego" 
+                    class="container__imagen-persona"
+                    loading="lazy"
+                    width="300"
+                    height="400"
+                />
+            </aside>
+        </section>
+    </main>
+
+    <!-- Scripts al final para mejor rendimiento -->
+    <script src="app.js" defer></script>
+</body>
+</html>
